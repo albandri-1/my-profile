@@ -1,0 +1,1757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Albandri Alanzi | Web Designer & Web Developer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #06101d;
+      --bg-soft: #091625;
+      --card: rgba(255, 255, 255, 0.035);
+      --line: rgba(255, 255, 255, 0.08);
+      --text: #ffffff;
+      --muted: #9aaabd;
+      --blue: #4f8cff;
+      --blue-soft: #83b2ff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Manrope", sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(
+          circle at 85% 10%,
+          rgba(56, 125, 255, 0.10),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 10% 65%,
+          rgba(56, 125, 255, 0.06),
+          transparent 25%
+        );
+      z-index: -1;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1080px, 90%);
+      margin: auto;
+    }
+
+    /* =========================
+       TOP PROGRESS
+    ========================= */
+
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, #3579ff, #8bb8ff);
+      z-index: 9999;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(6, 16, 29, 0.78);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(18px);
+    }
+
+    nav {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      list-style: none;
+      font-size: 11px;
+      letter-spacing: 0.3px;
+      color: #a9b7c9;
+    }
+
+    .nav-links a {
+      position: relative;
+      transition: 0.3s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -7px;
+      width: 0;
+      height: 1px;
+      background: var(--blue-soft);
+      transform: translateX(-50%);
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 91vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-orb {
+      position: absolute;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      background: rgba(42, 105, 230, 0.13);
+      filter: blur(100px);
+      right: -170px;
+      top: 0;
+      animation: floatOrb 8s ease-in-out infinite;
+    }
+
+    .hero-orb-two {
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: rgba(65, 135, 255, 0.06);
+      filter: blur(80px);
+      left: -100px;
+      bottom: 5%;
+      animation: floatOrb 10s ease-in-out infinite reverse;
+    }
+
+    @keyframes floatOrb {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(25px);
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 820px;
+      padding: 85px 0;
+    }
+
+    .hello {
+      color: #8498b0;
+      font-size: 14px;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(46px, 6vw, 72px);
+      line-height: 0.94;
+      font-weight: 500;
+      letter-spacing: -0.6px;
+      color: #ffffff;
+      margin-bottom: 17px;
+    }
+
+    .hero-role {
+      font-size: clamp(18px, 2.5vw, 25px);
+      font-weight: 400;
+      color: var(--blue-soft);
+      margin-bottom: 18px;
+    }
+
+    .hero-description {
+      max-width: 650px;
+      color: #a8b6c7;
+      font-size: 14px;
+      font-weight: 300;
+      margin-bottom: 29px;
+    }
+
+    .hero-line {
+      width: 75px;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        var(--blue),
+        transparent
+      );
+      margin-bottom: 27px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 11px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border-radius: 7px;
+      font-size: 11px;
+      letter-spacing: 0.2px;
+      border: 1px solid rgba(126, 173, 255, 0.3);
+      transition: 0.35s ease;
+    }
+
+    .btn-primary {
+      background: #2867dc;
+      border-color: #2867dc;
+      color: #ffffff;
+      box-shadow: 0 10px 30px rgba(40, 103, 220, 0.15);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 35px rgba(40, 103, 220, 0.28);
+      background: #3577ee;
+    }
+
+    .btn-secondary {
+      color: #d8e3f0;
+      background: rgba(255, 255, 255, 0.015);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
+    section {
+      padding: 88px 0;
+      position: relative;
+    }
+
+    .section-header {
+      margin-bottom: 35px;
+    }
+
+    .section-number {
+      color: #58708e;
+      font-size: 10px;
+      letter-spacing: 2px;
+      margin-bottom: 5px;
+    }
+
+    .section-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 42px;
+      font-weight: 500;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      color: #788ba2;
+      font-size: 12px;
+    }
+
+    .line {
+      width: 48px;
+      height: 1px;
+      background: var(--blue);
+      margin-bottom: 22px;
+      opacity: 0.8;
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 0.7fr 2fr;
+      gap: 45px;
+      align-items: start;
+    }
+
+    .about-label {
+      color: #6e829b;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .about-text {
+      color: #b1bdcc;
+      font-size: 14px;
+      font-weight: 300;
+      max-width: 780px;
+    }
+
+    /* =========================
+       CARDS
+    ========================= */
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      position: relative;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      padding: 24px;
+      overflow: hidden;
+      transition: 0.4s ease;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      right: -70px;
+      top: -70px;
+      background: rgba(63, 126, 255, 0.07);
+      border-radius: 50%;
+      transition: 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(90, 145, 255, 0.28);
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .card:hover::before {
+      transform: scale(1.5);
+    }
+
+    .card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .card h4 {
+      color: var(--blue-soft);
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .card p,
+    .card li {
+      color: #a8b6c7;
+      font-size: 12px;
+      font-weight: 300;
+    }
+
+    .card ul {
+      padding-left: 17px;
+      margin-top: 10px;
+    }
+
+    .card li {
+      margin-bottom: 6px;
+    }
+
+    /* =========================
+       EXPERIENCE
+    ========================= */
+
+    .experience-card {
+      min-height: 100%;
+    }
+
+    .experience-meta {
+      color: #647b96;
+      font-size: 11px;
+      margin-bottom: 12px;
+    }
+
+    /* =========================
+       PROJECT
+    ========================= */
+
+    .project-showcase {
+      position: relative;
+      border: 1px solid rgba(83, 139, 240, 0.23);
+      background:
+        linear-gradient(
+          135deg,
+          rgba(37, 99, 235, 0.09),
+          rgba(255, 255, 255, 0.025)
+        );
+      border-radius: 17px;
+      padding: 38px;
+      overflow: hidden;
+    }
+
+    .project-showcase::after {
+      content: "PROJECT";
+      position: absolute;
+      right: -10px;
+      top: 20px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 80px;
+      color: rgba(255, 255, 255, 0.025);
+      pointer-events: none;
+    }
+
+    .project-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .project-label {
+      color: var(--blue-soft);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 9px;
+    }
+
+    .project h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 31px;
+      line-height: 1.1;
+      font-weight: 600;
+      margin-bottom: 13px;
+    }
+
+    .project p {
+      color: #aab8c8;
+      max-width: 760px;
+      font-size: 13px;
+      font-weight: 300;
+    }
+
+    .project-number {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 50px;
+      color: rgba(130, 178, 255, 0.18);
+      line-height: 1;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 22px;
+    }
+
+    .tag {
+      border: 1px solid rgba(120, 170, 252, 0.2);
+      color: #98b7e6;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 9px;
+      background: rgba(255, 255, 255, 0.015);
+    }
+
+    /* =========================
+       SKILLS
+    ========================= */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .skill-box {
+      position: relative;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: rgba(255, 255, 255, 0.025);
+      transition: 0.35s ease;
+    }
+
+    .skill-box:hover {
+      transform: translateY(-4px);
+      border-color: rgba(83, 139, 240, 0.3);
+    }
+
+    .skill-icon {
+      color: var(--blue-soft);
+      font-size: 18px;
+      margin-bottom: 9px;
+    }
+
+    .skill-box h3 {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 9px;
+    }
+
+    .skill-box p {
+      color: #a4b1c1;
+      font-size: 12px;
+      line-height: 2;
+      font-weight: 300;
+    }
+
+    /* =========================
+       CERTIFICATES
+    ========================= */
+
+    .certificate-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .certificate {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 16px 19px;
+      border: 1px solid rgba(255, 255, 255, 0.065);
+      border-radius: 9px;
+      background: rgba(255, 255, 255, 0.022);
+      transition: 0.35s ease;
+    }
+
+    .certificate:hover {
+      transform: translateX(4px);
+      border-color: rgba(87, 143, 245, 0.25);
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .certificate h3 {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .certificate p {
+      color: #71849b;
+      font-size: 11px;
+      text-align: right;
+    }
+
+    /* =========================
+       LANGUAGES
+    ========================= */
+
+    .language-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .language-level {
+      color: #7590b0;
+      font-size: 11px;
+    }
+
+    /* =========================
+       VOLUNTEER
+    ========================= */
+
+    .volunteer-card {
+      min-height: 150px;
+    }
+
+    .hours {
+      display: inline-block;
+      margin-top: 12px;
+      color: var(--blue-soft);
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact {
+      text-align: center;
+      padding-top: 100px;
+      padding-bottom: 90px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .contact-box {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .contact-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 48px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .contact-description {
+      color: #788ba2;
+      font-size: 12px;
+      margin-bottom: 30px;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .contact-item {
+      padding: 10px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.025);
+      color: #aebaca;
+      font-size: 11px;
+      transition: 0.3s ease;
+    }
+
+    .contact-item:hover {
+      border-color: rgba(82, 140, 245, 0.3);
+      transform: translateY(-3px);
+    }
+
+    .contact-item span {
+      color: var(--blue-soft);
+      margin-right: 4px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      text-align: center;
+      color: #60738b;
+      font-size: 10px;
+      letter-spacing: 0.4px;
+    }
+
+    footer strong {
+      color: #8da3bd;
+      font-weight: 400;
+    }
+
+    /* =========================
+       REVEAL
+    ========================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 800px) {
+
+      nav {
+        min-height: 58px;
+      }
+
+      .nav-links {
+        gap: 10px 16px;
+        font-size: 10px;
+        flex-wrap: wrap;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-content {
+        padding: 75px 0;
+      }
+
+      .hero h1 {
+        font-size: 46px;
+      }
+
+      .hero-role {
+        font-size: 19px;
+      }
+
+      .hero-description {
+        font-size: 13px;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      .section-title {
+        font-size: 38px;
+      }
+
+      .about-layout {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .grid,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-showcase {
+        padding: 27px;
+      }
+
+      .project-top {
+        display: block;
+      }
+
+      .project-number {
+        display: none;
+      }
+
+      .project h3 {
+        font-size: 27px;
+      }
+
+      .certificate {
+        display: block;
+      }
+
+      .certificate p {
+        text-align: left;
+        margin-top: 4px;
+      }
+
+      .language-card {
+        display: block;
+      }
+
+      .language-level {
+        display: block;
+        margin-top: 5px;
+      }
+
+      .contact-title {
+        font-size: 42px;
+      }
+
+      .contact-info {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP PROGRESS -->
+  <div class="progress" id="progress"></div>
+
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="container">
+
+      <nav>
+
+        <ul class="nav-links">
+
+          <li>
+            <a href="#about">About</a>
+          </li>
+
+          <li>
+            <a href="#experience">Experience</a>
+          </li>
+
+          <li>
+            <a href="#project">Project</a>
+          </li>
+
+          <li>
+            <a href="#skills">Skills</a>
+          </li>
+
+          <li>
+            <a href="#certificates">Certificates</a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+      <div class="hero-orb"></div>
+      <div class="hero-orb-two"></div>
+
+      <div class="container">
+
+        <div class="hero-content reveal">
+
+          <div class="hello">
+            Hello, I'm
+          </div>
+
+          <h1>
+            Albandri Alanzi
+          </h1>
+
+          <div class="hero-role">
+            Web Designer | Web Developer
+          </div>
+
+          <div class="hero-line"></div>
+
+          <p class="hero-description">
+            I believe in clarity and precision, and that data has a human
+            side that deserves to be seen.
+          </p>
+
+          <div class="buttons">
+
+            <a href="#project" class="btn btn-primary">
+              View Projects
+            </a>
+
+            <a href="#contact" class="btn btn-secondary">
+              Contact Me
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+      <div class="container reveal">
+
+        <div class="section-header">
+
+          <div class="section-number">
+            01 — ABOUT
+          </div>
+
+          <div class="line"></div>
+
+          <h2 class="section-title">
+            Professional Profile
+          </h2>
+
+        </div>
+
+        <div class="about-layout">
+
+          <div>
+            <div class="about-label">
+              Profile
+            </div>
+          </div>
+
+          <p class="about-text">
+            Programming and Web Development graduate with practical
+            experience in customer service and digital environments,
+            skilled in HTML, CSS, JavaScript, SQL, and Microsoft Office.
+            Strong in problem-solving, communication, teamwork, and
+            creating practical digital solutions, with a career focus
+            on Web Development and Web Design.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- EXPERIENCE -->
+
+    <section id="experience">
+
+      <div class="container reveal">
+
+        <div class="section-header">
+
+          <div class="section-number">
+            02 — EXPERIENCE
+          </div>
+
+          <div class="line"></div>
+
+          <h2 class="section-title">
+            Experience
+          </h2>
+
+          <p class="section-subtitle">
+            Professional Experience
+          </p>
+
+        </div>
+
+
+        <div class="grid">
+
+          <div class="card experience-card">
+
+            <h3>
+              Arkan Al-Kimiya Factory
+            </h3>
+
+            <h4>
+              Customer Service Representative
+            </h4>
+
+            <div class="experience-meta">
+              Saudi Arabia · December 2024 – June 2026
+            </div>
+
+            <ul>
+
+              <li>
+                Enhanced customer service quality by addressing inquiries
+                and providing appropriate support.
+              </li>
+
+              <li>
+                Strengthened request follow-up by coordinating with
+                relevant departments and monitoring progress.
+              </li>
+
+              <li>
+                Improved customer satisfaction by resolving concerns
+                professionally and maintaining effective communication.
+              </li>
+
+              <li>
+                Responded to customer inquiries and provided appropriate
+                information and support.
+              </li>
+
+              <li>
+                Followed up on requests and coordinated with relevant
+                departments.
+              </li>
+
+              <li>
+                Assisted in resolving customer issues and escalated
+                complex concerns.
+              </li>
+
+              <li>
+                Maintained professional communication and focused on
+                customer satisfaction.
+              </li>
+
+            </ul>
+
+          </div>
+
+
+          <div class="card experience-card">
+
+            <h3>
+              Tabuk Health Cluster
+            </h3>
+
+            <h4>
+              IT Support – Cooperative Training
+            </h4>
+
+            <div class="experience-meta">
+              Saudi Arabia · January 2026 – May 2026
+            </div>
+
+            <ul>
+
+              <li>
+                Improved technical support by diagnosing hardware and
+                software issues and resolving user problems.
+              </li>
+
+              <li>
+                Enhanced system readiness by configuring devices and
+                maintaining accurate patient records.
+              </li>
+
+              <li>
+                Diagnosed hardware and software issues and provided
+                user technical support.
+              </li>
+
+              <li>
+                Installed and configured systems on new devices.
+              </li>
+
+              <li>
+                Updated patient records and handled routine service
+                complaints.
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- EDUCATION -->
+
+    <section id="education">
+
+      <div class="container reveal">
+
+        <div class="section-header">
+
+          <div class="section-number">
+            03 — EDUCATION
+          </div>
+
+          <div class="line"></div>
+
+          <h2 class="section-title">
+            Education
+          </h2>
+
+        </div>
+
+        <div class="card">
+
+          <h3>
+            Digital Technical College
+          </h3>
+
+          <h4>
+            Diploma in Programming and Web Development
+          </h4>
+
+          <p>
+            Saudi Arabia · 2024 – 2026
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROJECT -->
+
+    <section id="project">
+
+      <div class="container reveal">
+
+        <div class="section-header">
+
+          <div class="section-number">
+            04 — PROJECT
+          </div>
+
+          <div class="line"></div>
+
+          <h2 class="section-title">
+            Graduation Project
+          </h2>
+
+        </div>
+
+
+        <div class="project-showcase">
+
+          <div class="project-top">
+
+            <div>
+
+              <div class="project-label">
+                Featured Project
+              </div>
+
+              <h3>
+                IoT Smart Home & Energy Monitoring System
+              </h3>
+
+              <p>
+                A curated IoT and software engineering project
+                demonstrating a smart home automation system built
+                with NodeMCU and Blynk, designed for remote appliance
+                control and real-time energy consumption tracking.
+              </p>
+
+            </div>
+
+            <div class="project-number">
+              01
+            </div>
+
+          </div>
+
+
+          <div class="tags">
+
+            <span class="tag">NodeMCU</span>
+            <span class="tag">Blynk</span>
+            <span class="tag">IoT</span>
+            <span class="tag">Smart Home</span>
+            <span class="tag">Energy Monitoring</span>
+            <span class="tag">Automation</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+
+      <div class="container reveal">
+
+        <div class="section-header">
+
+          <div class="section-number">
+            05 — SKILLS
+          </div>
+
+          <div class="line"></div>
+
+          <h2 class="section-title">
+            Skills
+          </h2>
+
+        </div>
+
+
+        <div class="skills-grid">
+
+          <div class="skill-box">
+
+            <div class="skill-icon">
+              ◇
+            </div>
+
+            <h3>
+              Web Development
+            </h3>
+
+            <p>
+              HTML & CSS Development<br>
+              JavaScript Development<br>
+              Web Development Fundamentals<br>
+              Responsive Web Design
+            </p>
+
+          </div>
+
+
+          <div class="skill-box">
+
+            <div class="skill-icon">
+              ◇
+            </div>
+
+            <h3>
+              Web Design
+            </h3>
+
+            <p>
+              Modern Web Design<br>
+              Responsive Design<br>
+              User Interface Design<br>
+              Website Layout
+            </p>
+
+          </div>
+
+
+          <div class="skill-box">
+
+            <div class="skill-icon">
+              ◇
+            </div>
+
+            <h3>
+              Data & Digital Tools
+            </h3>
+
+            <p>
+              Database Management & SQL<br>
+              Data Entry & Management<br>
+              Microsoft Office Applications<br>
+              Digital Information Management
+            </p>
+
+          </div>
+
+
+          <div class="skill-box">
+
+            <div class="skill-icon">
+              ◇
+            </div>
+
+            <h3>
+              Professional
+            </h3>
+
+            <p>
+              Analytical Thinking & Problem-Solving<br>
+              Customer Service Excellence<br>
+              Time Management & Prioritization<br>
+              Teamwork & Effective Communication
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CERTIFICATES -->
+
+    <section id="certificates">
+
+      <div class="container reveal">
+
+        <div class="section-header">
+
+          <div class="section-number">
+            06 — CERTIFICATES
+          </div>
+
+          <div class="line"></div>
+
+          <h2 class="section-title">
+            Certificates & Courses
+          </h2>
+
+        </div>
+
+
+        <div class="certificate-list">
+
+          <div class="certificate">
+            <h3>
+              SQL Professional Development Track
+            </h3>
+            <p>
+              Tuwaiq Academy — 101, 102 & 103
+            </p>
+          </div>
+
+          <div class="certificate">
+            <h3>
+              JavaScript Professional Development Track
+            </h3>
+            <p>
+              Tuwaiq Academy — 101, 102 & 103
+            </p>
+          </div>
+
+          <div class="certificate">
+            <h3>
+              HTML, CSS, and JavaScript for Web Developers
+            </h3>
+            <p>
+              Coursera · Jan 2026
+            </p>
+          </div>
+
+          <div class="certificate">
+            <h3>
+              SQL Foundations
+            </h3>
+            <p>
+              Coursera · Jul 2026
+            </p>
+          </div>
+
+          <div class="certificate">
+            <h3>
+              Technical Support Fundamentals
+            </h3>
+            <p>
+              Coursera · Jun 2026
+            </p>
+          </div>
+
+          <div class="certificate">
+            <h3>
+              Introduction to AI
+            </h3>
+            <p>
+              Coursera · Dec 2025
+            </p>
+          </div>
+
+          <div class="certificate">
+            <h3>
+              Microsoft Excel
+            </h3>
+            <p>
+              Coursera · Aug 2025
+            </p>
+          </div>
+
+          <div class="certificate">
+            <h3>
+              MySQL Workbench: Database Creation & Design
+            </h3>
+            <p>
+              Coursera · Aug 2025
+            </p>
+          </div>
+
+          <div class="certificate">
+            <h3>
+              Web Development
+            </h3>
+            <p>
+              IBM · Jun 2025
+            </p>
+          </div>
+
+          <div class="certificate">
+            <h3>
+              Web Development (MDL-262)
+            </h3>
+            <p>
+              IBM SkillsBuild · Jun 2025
+            </p>
+          </div>
+
+          <div class="certificate">
+            <h3>
+              Fundamentals of Artificial Intelligence
+            </h3>
+            <p>
+              SDAIA · Jun 2025
+            </p>
+          </div>
+
+          <div class="certificate">
+            <h3>
+              Artificial Intelligence Concepts and Advanced Applications
+            </h3>
+            <p>
+              SDAIA · Jun 2025
+            </p>
+          </div>
+
+          <div class="certificate">
+            <h3>
+              Getting Started with Front-End and Web Development
+            </h3>
+            <p>
+              Professional Course · May 2026
+            </p>
+          </div>
+
+          <div class="certificate">
+            <h3>
+              Introduction to Databases
+            </h3>
+            <p>
+              Professional Training · Oct 2025
+            </p>
+          </div>
+
+          <div class="certificate">
+            <h3>
+              Technical Skills in the Workplace
+            </h3>
+            <p>
+              TVTC · Oct 2024
+            </p>
+          </div>
+
+          <div class="certificate">
+            <h3>
+              Digital Skills: Artificial Intelligence
+            </h3>
+            <p>
+              Accenture / FutureLearn · Certificate of Achievement
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- LANGUAGES -->
+
+    <section id="languages">
+
+      <div class="container reveal">
+
+        <div class="section-header">
+
+          <div class="section-number">
+            07 — LANGUAGES
+          </div>
+
+          <div class="line"></div>
+
+          <h2 class="section-title">
+            Languages
+          </h2>
+
+        </div>
+
+
+        <div class="grid">
+
+          <div class="card language-card">
+
+            <h3>
+              Arabic
+            </h3>
+
+            <span class="language-level">
+              Native
+            </span>
+
+          </div>
+
+
+          <div class="card language-card">
+
+            <h3>
+              English
+            </h3>
+
+            <span class="language-level">
+              Professional Working Proficiency
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- VOLUNTEER -->
+
+    <section id="volunteer">
+
+      <div class="container reveal">
+
+        <div class="section-header">
+
+          <div class="section-number">
+            08 — VOLUNTEER
+          </div>
+
+          <div class="line"></div>
+
+          <h2 class="section-title">
+            Volunteer Experience
+          </h2>
+
+        </div>
+
+
+        <div class="grid">
+
+          <div class="card volunteer-card">
+
+            <h3>
+              Saudi National Day Event Organization
+            </h3>
+
+            <p>
+              Digital Technical College
+            </p>
+
+            <span class="hours">
+              15 HOURS
+            </span>
+
+          </div>
+
+
+          <div class="card volunteer-card">
+
+            <h3>
+              Saudi and World Volunteer Day Celebration
+            </h3>
+
+            <p>
+              Civil Defense Department in Tabuk
+            </p>
+
+            <span class="hours">
+              5 HOURS
+            </span>
+
+          </div>
+
+
+          <div class="card volunteer-card">
+
+            <h3>
+              Saudi Red Crescent Authority (SRCA)
+            </h3>
+
+            <span class="hours">
+              6 HOURS
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact" class="contact">
+
+      <div class="container">
+
+        <div class="contact-box reveal">
+
+          <div class="section-number">
+            09 — CONTACT
+          </div>
+
+          <div class="line" style="margin: 18px auto 22px;"></div>
+
+          <h2 class="contact-title">
+            Let's Connect
+          </h2>
+
+          <p class="contact-description">
+            Feel free to contact me for professional opportunities,
+            collaborations, and creative projects.
+          </p>
+
+
+          <div class="contact-info">
+
+            <div class="contact-item">
+              <span>Phone</span>
+              <a href="tel:0541004798">
+                0541004798
+              </a>
+            </div>
+
+
+            <div class="contact-item">
+              <span>Email</span>
+              <a href="mailto:albandrialanzi1@gmail.com">
+                albandrialanzi1@gmail.com
+              </a>
+            </div>
+
+
+            <div class="contact-item">
+              <span>LinkedIn</span>
+              <a
+                href="https://www.linkedin.com/in/albandri-alanzi"
+                target="_blank"
+                rel="noopener noreferrer">
+                albandri-alanzi
+              </a>
+            </div>
+
+
+            <div class="contact-item">
+              <span>GitHub</span>
+              <a
+                href="https://github.com/albandri-1"
+                target="_blank"
+                rel="noopener noreferrer">
+                albandri-1
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container">
+
+      © 2026 <strong>Albandri Alanzi</strong>.
+      All rights reserved.
+
+      <br>
+
+      Web Designer | Web Developer
+
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    /* Scroll Progress */
+
+    window.addEventListener("scroll", () => {
+
+      const scrollTop = window.scrollY;
+
+      const documentHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+
+      const progress =
+        (scrollTop / documentHeight) * 100;
+
+      document.getElementById("progress").style.width =
+        progress + "%";
+
+    });
+
+
+    /* Reveal Animation */
+
+    const revealElements =
+      document.querySelectorAll(".reveal");
+
+    const observer =
+      new IntersectionObserver(
+        (entries) => {
+
+          entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add("show");
+
+              observer.unobserve(entry.target);
+
+            }
+
+          });
+
+        },
+        {
+          threshold: 0.12
+        }
+      );
+
+
+    revealElements.forEach((element) => {
+      observer.observe(element);
+    });
+
+  </script>
+
+</body>
+</html>
